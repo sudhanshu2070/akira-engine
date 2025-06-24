@@ -19,8 +19,19 @@ const users = [
 ];
 
 exports.getAllUsers = (req, res) => {
-  res.json({ users });
+    // const data = users.filter(map => map.id < 10); // This will return all users with id < 10
+    const data = users.find(map => map.id < 10); // This will return the first user with id < 10
+    res.json({ data});
 };
+
+exports.getUserById = (req, res) => {
+  const userId = parseInt(req.params.id);   
+    const user = users.find(map => map.id === userId);
+    if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+    }
+    res.json({ data: user });
+}
 
 exports.createUser = (req, res) => {
   const userData = req.body;
