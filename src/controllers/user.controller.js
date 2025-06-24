@@ -19,8 +19,8 @@ const users = [
 ];
 
 exports.getAllUsers = (req, res) => {
-    // const data = users.filter(map => map.id < 10); // This will return all users with id < 10
-    const data = users.find(map => map.id < 10); // This will return the first user with id < 10
+    const data = users.filter(map => map.id < 10); // This will return all users with id < 10
+    // const data = users.find(map => map.id < 10); // This will return the first user with id < 10
     res.json({ data});
 };
 
