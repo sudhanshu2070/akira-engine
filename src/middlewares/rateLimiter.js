@@ -46,7 +46,7 @@ const expressRateLimiter = rateLimit({
   legacyHeaders: false,  // Disables X-RateLimit-* headers
 });
 
-module.exports = (req, res, next) => {
-    rateLimiter(req, res, next),
-    expressRateLimiter(req, res, next)
+module.exports = {
+  rateLimiter,
+  expressRateLimiter,
 };
