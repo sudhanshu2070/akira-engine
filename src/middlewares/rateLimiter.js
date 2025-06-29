@@ -22,7 +22,7 @@ const rateLimiter = (req, res, next) => {
         userData.count += 1;
 
         // Check if the time window has expired
-        if (currentTime - userData.firstRequestTime > rateLimitWindow) {
+        if (currentTime - userData.firstRequestTime > rateLimitWindowMS) {
             userData.count = 1; // Reset count
             userData.firstRequestTime = currentTime; // Reset time
         }
