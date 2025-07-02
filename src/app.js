@@ -16,4 +16,13 @@ app.use(errorLogger); // Middleware to log errors
 
 app.use('/api/v1', routes); // Base route prefix
 
+app.use('/api/data', cacheMiddleware(30)); // cache for 30 seconds
+
+app.get('/api/data', (req, res) => {
+  // Simulate slow data
+  setTimeout(() => {
+    res.send({ message: 'Fresh data from DB', timestamp: new Date() });
+  }, 1000);
+});
+
 module.exports = app;
