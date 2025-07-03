@@ -3,6 +3,12 @@ const cors = require('cors');
 const routes = require('./routes');
 const { timeLogger, errorLogger } = require('./middlewares/logger');
 const { rateLimiter, expressRateLimiter } = require('./middlewares/rateLimiter'); 
+const {
+  registerUser,
+  loginUser,
+  authenticateToken,
+  getProfile
+} = require('./controllers/authController');
 
 const app = express();
 
